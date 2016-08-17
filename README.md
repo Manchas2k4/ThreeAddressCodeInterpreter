@@ -26,9 +26,9 @@ The ThreeAddressCode Interpreter is a tool for running 3AC instructions in the b
   });
   ```
   
-## Documentation
+# Documentation
 
-### Class ThreeAddressCode
+## Class ThreeAddressCode
  Takes Config object to configure the intepreter.
  
  **Syntax**
@@ -37,61 +37,70 @@ The ThreeAddressCode Interpreter is a tool for running 3AC instructions in the b
  var interpreter = new ThreeAddressCode([config]);
  ```
  
-### Methods
-- **.run()**
+## Methods
+### .run()
 
 Method to execute the code segment with the given inputs.
 
-**Parameters**
+- **Parameters**
 
-- code  (string)
-code lines separated by the separater defined in the config object
-- inputs (array)
-list of inputs referenced in the code segment from p0 to pn.
-- print (function)
-pipe stdout each time a print statement is hit, return Print Object.
-- error (function)
-handles error handling, return Error Object.
+	- *code  (string)*
+	
+	Code lines separated by the separater defined in the config object
+	- *inputs (array)*
+		
+	List of inputs referenced in the code segment from p0 to pn.
+	- *print (method)*
+		 
+	Pipe stdout each time a print statement is hit, return Print Object.
+	- *error (method)*
+		 
+	Handles error handling, return Error Object.
 		 	
-**Syntax**
+- **Syntax**
 
-```js
-interpreter->run(code, [inputs, [prints, [error]]]);
-```
+	```js
+	interpreter->run(code, [inputs, [prints, [error]]]);
+	```
 
-**Example**
+- **Example**
 
-```js
-interpreter->run("print 3+4\nprint 2*3");
-```
+	```js
+	interpreter->run("print 3+4\nprint 2*3");
+	```
 
-- **.run_line()**
+### .run_line()
 
 Method to execute a single code line with the given inputs.
 
-**Parameters**
+- **Parameters**
 
-- code  (string)
-code lines separated by the separater defined in the config object
-- inputs (array)
-list of inputs referenced in the code segment from p0 to pn.
-- print (function)
-pipe stdout each time a print statement is hit, return Print Object.
-- error (function)
-handles error handling, return Error Object.
-- clearHeap (boolean)
-clears the heap memory to start from the beginning.
+	- *code  (string)*
+
+	Code lines separated by the separater defined in the config object
+	- *inputs (array)*
+	
+	List of inputs referenced in the code segment from p0 to pn.
+	- *print (method)*
+
+	Pipe stdout each time a print statement is hit, return Print Object.
+	- *error (method)*
+
+	Handles error handling, return Error Object.
+	- *clearHeap (boolean)*
+	
+	Clears the heap memory to start from the beginning.
 		 	
-**Syntax**
+- **Syntax**
 
-```js
-interpreter->run_line(code, [inputs, [print, [error, [clearHeap]]]);
-```
+	```js
+	interpreter->run_line(code, [inputs, [print, [error, [clearHeap]]]);
+	```
 
-**Example**
+- **Example**
 
-```js
-interpreter->run("print 3+4");
-```
+	```js
+	interpreter->run("print 3+4");
+	```
 
 
