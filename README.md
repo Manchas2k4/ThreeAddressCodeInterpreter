@@ -44,16 +44,16 @@ Method to execute the code segment with the given inputs.
 
 - **Parameters**
 
-	- *code  (string)*
+	####code  (string)
 	
 	Code lines separated by the separater defined in the config object
-	- *inputs (array)*
+	####inputs (array)
 		
 	List of inputs referenced in the code segment from p0 to pn.
-	- *print (method)*
+	####print (method)
 		 
 	Pipe stdout each time a print statement is hit, return Print Object.
-	- *error (method)*
+	####error (method)
 		 
 	Handles error handling, return Error Object.
 		 	
@@ -75,19 +75,19 @@ Method to execute a single code line with the given inputs.
 
 - **Parameters**
 
-	- *code  (string)*
+	####code  (string)
 
 	Code lines separated by the separater defined in the config object
-	- *inputs (array)*
+	####inputs (array)
 	
 	List of inputs referenced in the code segment from p0 to pn.
-	- *print (method)*
+	####print (method)
 
 	Pipe stdout each time a print statement is hit, return Print Object.
-	- *error (method)*
+	####error (method)
 
 	Handles error handling, return Error Object.
-	- *clearHeap (boolean)*
+	####clearHeap (boolean)
 	
 	Clears the heap memory to start from the beginning.
 		 	
