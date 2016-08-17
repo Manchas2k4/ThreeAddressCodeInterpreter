@@ -103,4 +103,67 @@ Method to execute a single code line with the given inputs.
 	interpreter->run("print 3+4");
 	```
 
+### .add()
+
+Method to add a single code line to the list of code lines.
+
+- **Parameters**
+
+	####code  (string)
+
+	single code line.
+		 	
+- **Syntax**
+
+	```js
+	interpreter->add(code);
+	```
+
+- **Example**
+
+	```js
+	interpreter->add("print 3+9");
+	```
+
+### .get()
+
+Method to retrieve variables from the heap or to evaluate expression. Returns the value of the varibale stored in heap or the result of an expression.
+
+- **Parameters**
+
+	####code  (string)
+
+	single code line or a variable name
+		 	
+- **Syntax**
+
+	```js
+	interpreter->get(code);
+	```
+
+- **Example**
+
+	```js
+	interpreter->get("A");
+	```
+
+### .output()
+
+Method to retrieve results of print statements. Returns list of print objects.
+		 	
+- **Syntax**
+
+	```js
+	interpreter->output();
+	```
+
+### .debug() [Development purposes only]
+
+Method to retrieve Heap object from the memory. Debug property must be set in config object 
+		 	
+- **Syntax**
+
+	```js
+	interpreter->debug();
+	```
 
