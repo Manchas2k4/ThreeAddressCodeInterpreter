@@ -1,0 +1,14 @@
+/**
+ *	SUM OF TWO NUMBERS
+ *	
+ *	Requires 2 parameters in standard input
+ */
+
+BeginFunc sum, 2
+return p0 + p1
+EndFunc
+
+param p0
+param p1
+call sum, 2
+return out

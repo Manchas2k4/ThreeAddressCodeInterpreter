@@ -1,0 +1,18 @@
+/**
+ *	FIBONNACI SEQUENCE
+ *
+ *	Require 1 number in the standard input ( N )
+ */
+
+f = 0
+s = 1
+if p0 == 1 return f
+if p0 == 2 return s
+p0 = p0 - 2
+if p0 < 0 return -1
+label: t = f+s
+f = s
+s = t
+p0 = p0-1
+if p0 > 0 goto label
+return s

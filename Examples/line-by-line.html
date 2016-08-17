@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Line By Line Execution</title>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../style/line-by-line.css">
+</head>
+<body>
+
+	<div id="heap_display">
+	</div>
+	<div id="editor">
+		<input type="text" id="coder" name="code" />
+	</div>
+
+	<script type="text/javascript" src="../script/ThreeAddressCode.min.js"></script>
+	<script type="text/javascript">
+		var interpreter;
+		window.onload = function() {
+			var coder = document.getElementById("coder");
+			interpreter = new ThreeAddressCode({
+				debug: true
+			});
+
+			coder.addEventListener("keypress", function(e) {
+				var code = e.keyCode || e.charCode;
+
+				if(code == 13) {
+					// press submitted
+					var code = coder.value;
+					coder.value = "";
+
+					runCommand(code);
+					e.preventDefault();
+				}
+
+			});
+		}
+
+		function createVariable(name, value) {
+			var obj = document.createElement("div");
+			obj.title = name;
+			obj.innerHTML = value;
+
+			var holder = document.getElementById("heap_display");
+			holder.appendChild(obj);
+		}
+
+		function runCommand(code) {
+			interpreter.run_line(code, [], function(res) {
+				alert(res['val']);
+			}, function(res) {
+				alert(res['message']);
+			});
+
+
+			var heap = interpreter.debug();
+			document.getElementById("heap_display").innerHTML = "";
+			for(var key of Object.keys(heap)) {
+				console.log(key, heap[key]);
+				createVariable(key, heap[key]);
+			}
+		}
+	</script>
+
+</body>
+</html>

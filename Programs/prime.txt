@@ -1,0 +1,33 @@
+/**
+ *	PRIME CHECKER
+ *
+ *	Require 1 number in the standard input ( N )
+ */
+
+
+BeginFunc isPrime, 1
+
+k = p0 % 2
+if k == 0 goto failed
+
+c = 1
+n = p0 / 2
+
+label: c = c + 2
+k = p0 % c
+
+if c > n goto pass
+if k != 0 goto label
+
+
+failed:
+return 0
+
+pass:
+return 1
+
+EndFunc
+
+param p0
+call isPrime, 1
+return out

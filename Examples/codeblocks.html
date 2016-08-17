@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Code Blocks</title>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/theme/base16-dark.min.css">
+	<link rel="stylesheet" type="text/css" href="../style/codeblocks.css">
+</head>
+<body>
+
+	<form id="codeform">
+		<div id="codeareaholder">
+			<textarea id="codearea"></textarea>
+		</div>
+		<input type="text" placeholder="comma separated inputs" id="stdin">
+		<input type="submit" name="submit" value="execute">
+	</form>
+
+	<div id="holder">
+		<div id="results">
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.min.js"></script>
+	<script type="text/javascript" src="../script/ThreeAddressCode.min.js"></script>
+	<script type="text/javascript">
+		
+		window.onload = function() {
+			var codearea = document.getElementById("codearea");
+			var holder = document.getElementById("results");
+			var stdin = document.getElementById("stdin");
+			var obj = new ThreeAddressCode();
+
+			var editor = CodeMirror.fromTextArea(codearea, {
+				lineNumbers: true,
+				styleActiveLine: true,
+				matchBrackets: true
+			});
+
+			editor.setOption("theme", "base16-dark");
+			var form = document.getElementById("codeform");
+			form.addEventListener("submit", function(e) {
+				var code = editor.getValue();
+				var ins = stdin.value;
+
+				results.innerHTML = "";
+				ins = ins.split(",");
+				var inputs = [];
+
+				for(var i of ins) {
+					if(i.length > 0 && isFinite(i))
+						inputs.push(parseFloat(i));
+				}
+
+				var res = obj.run(code, inputs, function(ret) {
+					var result = document.createElement("span");
+					console.log(ret);
+					result.innerHTML = ret['val'] + " <i>Line " + ret['line'] + "</i>";
+					holder.appendChild(result);
+				}, function(err) {
+					console.error("CodeBlock", err);
+				});
+					
+				var result = document.createElement("span");
+				result.innerHTML = "Output: " + res;
+				result.className = "result";
+				holder.appendChild(result);
+
+				e.preventDefault();
+				return false;
+			});
+		}
+	</script>
+
+</body>
+</html>
