@@ -57,13 +57,13 @@ Method to execute the code segment with the given inputs.
 - **Syntax**
 
 	```js
-	interpreter->run(code, [inputs, [prints, [error]]]);
+	interpreter.run(code, [inputs, [prints, [error]]]);
 	```
 
 - **Example**
 
 	```js
-	interpreter->run("print 3+4\nprint 2*3");
+	interpreter.run("print 3+4\nprint 2*3");
 	```
 
 ### .run_line()
@@ -91,13 +91,13 @@ Method to execute a single code line with the given inputs.
 - **Syntax**
 
 	```js
-	interpreter->run_line(code, [inputs, [print, [error, [clearHeap]]]);
+	interpreter.run_line(code, [inputs, [print, [error, [clearHeap]]]);
 	```
 
 - **Example**
 
 	```js
-	interpreter->run("print 3+4");
+	interpreter.run_line("print 3+4");
 	```
 
 ### .add()
@@ -113,13 +113,13 @@ Method to add a single code line to the list of code lines.
 - **Syntax**
 
 	```js
-	interpreter->add(code);
+	interpreter.add(code);
 	```
 
 - **Example**
 
 	```js
-	interpreter->add("print 3+9");
+	interpreter.add("print 3+9");
 	```
 
 ### .get()
@@ -135,13 +135,13 @@ Method to retrieve variables from the heap or to evaluate expression. Returns th
 - **Syntax**
 
 	```js
-	interpreter->get(code);
+	interpreter.get(code);
 	```
 
 - **Example**
 
 	```js
-	interpreter->get("A");
+	interpreter.get("A");
 	```
 
 ### .output()
@@ -151,7 +151,7 @@ Method to retrieve results of print statements. Returns list of print objects.
 - **Syntax**
 
 	```js
-	interpreter->output();
+	interpreter.output();
 	```
 
 ### .debug() [Development purposes only]
@@ -161,7 +161,7 @@ Method to retrieve Heap object from the memory. Debug property must be set in co
 - **Syntax**
 
 	```js
-	interpreter->debug();
+	interpreter.debug();
 	```
 
 
