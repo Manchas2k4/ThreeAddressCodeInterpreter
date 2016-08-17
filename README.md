@@ -9,10 +9,11 @@ The ThreeAddressCode Interpreter is a tool for running 3AC instructions in the b
 
 **Setting up the Environment**
 
-	Copy the ThreeAddressCode.min.js inside your working directory and insert the script tag 
-	inside your HTML document.
+  Copy the ThreeAddressCode.min.js inside your working directory and insert the script tag inside your HTML document.
 
-	`<script type="txt/javascript" src="ThreeAddressCode.min.js" />`
+  ```
+<script type="txt/javascript" src="ThreeAddressCode.min.js" />
+  ```
 
 **Building your First Program**
 
