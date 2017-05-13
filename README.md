@@ -4,7 +4,7 @@ The ThreeAddressCode Interpreter is a tool for running 3AC instructions in the b
 
 ## Get Started
 
-###Setting up the Environment
+### Setting up the Environment
 
   Copy the ThreeAddressCode.min.js inside your working directory and insert the script tag inside your HTML document.
 
@@ -12,7 +12,7 @@ The ThreeAddressCode Interpreter is a tool for running 3AC instructions in the b
 <script type="txt/javascript" src="ThreeAddressCode.min.js" />
   ```
 
-###Building your First Program
+### Building your First Program
 
   The following code segment will produce an alert with result 7.
   
@@ -41,16 +41,16 @@ Method to execute the code segment with the given inputs.
 
 - **Parameters**
 
-	####code  (string)
+	#### code  (string)
 	
 	Code lines separated by the separater defined in the config object
-	####inputs (array)
+	#### inputs (array)
 		
 	List of inputs referenced in the code segment from p0 to pn.
-	####print (method)
+	#### print (method)
 		 
 	Pipe stdout each time a print statement is hit, return Print Object.
-	####error (method)
+	#### error (method)
 		 
 	Handles error handling, return Error Object.
 		 	
@@ -72,19 +72,19 @@ Method to execute a single code line with the given inputs.
 
 - **Parameters**
 
-	####code  (string)
+	#### code  (string)
 
 	Code lines separated by the separater defined in the config object
-	####inputs (array)
+	#### inputs (array)
 	
 	List of inputs referenced in the code segment from p0 to pn.
-	####print (method)
+	#### print (method)
 
 	Pipe stdout each time a print statement is hit, return Print Object.
-	####error (method)
+	#### error (method)
 
 	Handles error handling, return Error Object.
-	####clearHeap (boolean)
+	#### clearHeap (boolean)
 	
 	Clears the heap memory to start from the beginning.
 		 	
@@ -106,7 +106,7 @@ Method to add a single code line to the list of code lines.
 
 - **Parameters**
 
-	####code  (string)
+	#### code  (string)
 
 	single code line.
 		 	
@@ -128,7 +128,7 @@ Method to retrieve variables from the heap or to evaluate expression. Returns th
 
 - **Parameters**
 
-	####code  (string)
+	#### code  (string)
 
 	single code line or a variable name
 		 	
@@ -167,32 +167,32 @@ Method to retrieve Heap object from the memory. Debug property must be set in co
 
 ## Objects
 ### Config Object
-####debug
+#### debug
 
   Shows additional information about errors, warnings, prints and program execution. Default value is false.
-####stopOnError
+#### stopOnError
 
   Stop execution if error occured in the code. Default value is false.
-####separater
+#### separater
 
   Used to separate code lines inside code string. Default value is '\n'.
   
 ### Print Object
-####val
+#### val
 
   Contains the result of the expression with the print statement.
-####line
+#### line
 
   Contains the line number of the print statement.
   
 ### Error Object
-####message
+#### message
 
   Contains the Error message for readibility.
-####line
+#### line
   
   Contains the line number of the instruction that produced the error.
-####code
+#### code
 
   Contains an interger value unique to each error type.
   
@@ -206,23 +206,23 @@ Method to retrieve Heap object from the memory. Debug property must be set in co
   - 108	-	Array index out of bound
   - 120	-	Unknown Error Type
  
-##Executable Commands
-###Expression
+## Executable Commands
+### Expression
   Unary and Binary Operations with optional assignment. Variables can be pointers, references and indexed assignments.
 
-####Binary Expression
+#### Binary Expression
   
   `[variable = ] expression operator expression`
 
-####Unary Expression
+#### Unary Expression
   
   `[variable = ] operator expression`
   
-####Indexed Expression
+#### Indexed Expression
   
   `array[index] = expression`
   
-####Pointer Expression
+#### Pointer Expression
 
   ```
   variable2 = &variable1
@@ -230,7 +230,7 @@ Method to retrieve Heap object from the memory. Debug property must be set in co
   [variable3 =] *variable2
   ```
   
-####Example
+#### Example
  
  ```js
  // Stores 7 in a
@@ -255,23 +255,23 @@ h = &a
 *h = 25
 ```
 
-###Label
+### Label
 Identifier that identifies a labeled statement.
 
 `label: [statement]`
 
-####Example
+#### Example
 
 ```js
 here: a = 6+7
 ```
 
-###Jump
+### Jump
 Unconditional jumps to a predefined label.
 
 `goto label`
 
-####Example
+#### Example
 
 ```js
 here: print 8*7
@@ -280,36 +280,36 @@ goto here
 
 ```
 
-###Flow Control
+### Flow Control
 Determine the flow of control based on condition.
 
 `if expression statement`
 
-####Example
+#### Example
 
 ```js
 if 5 > 3 print 1
 ```
 
-###Methods
+### Methods
 A method can be defined with the keyword BeginFunc and ended with EndFunc.
 
-####BeginFunc methodname, n
+#### BeginFunc methodname, n
 Create a new method with the name 'methodname' and with number of acceptable parameters 'n'.
 
-####EndFunc
+#### EndFunc
 Set the boundary for the method code segment. Everything between BeginFunc statement and EndFUnc statement is considered a part of the method body.
 
-####param expression
+#### param expression
 Set a parameter to be passed to the method. Must be called before calling the method. Parameters can be accessed inside the method body with variable names from p0 to pn where n is the number of total parameters.
 
-####call methodname, n
+#### call methodname, n
 Calls a method with the name 'methodname' and acceptable parameters 'n'. The result returned by the method will be stored in the variable 'out' and will be retained until the next method call. Methods must be declared before calling. If there are more paramertes than required for calling the method, the paramertes added first will be send over to the method and removed.
 
-####return [expression]
+#### return [expression]
 Halts the method execution and returns the value of the expression (if given).
 
-####Syntax
+#### Syntax
 
 ```js
 BeginFunc methodname, n
@@ -325,7 +325,7 @@ print out
 
 ```
 
-####Example
+#### Example
 This code segment defines a method that returns the multiplication of two numbers.
 
 ```js
