@@ -22,7 +22,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "http://sjdhjd"
+		"url": "https://github.com/riteshkukreja/ThreeAddressCodeInterpreter/tree/npm"
 	},
 	"name": "tacinterpreter",
 	"version": "1.0.1"
