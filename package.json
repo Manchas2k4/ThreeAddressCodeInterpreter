@@ -1,0 +1,29 @@
+{
+	"author": {
+		"name": "Ritesh Kukreja"
+	},
+	"dependencies": {},
+	"description": "The ThreeAddressCode Interpreter is a tool for running 3AC instructions in the browser. It is a true interpreter for Three Address Code Instructions. Instead of compiling from source language to machine language, it interprets directly in JavaScript.",
+	"keywords": [
+		"Three",
+		"Address",
+		"Code",
+		"npm",
+		"interpreter",
+		"javascript"
+	],
+	"license": "MIT",
+	"main": "index.js",
+	"maintainers": [
+		{
+			"name": "riteshkukreja",
+			"email": "ritesh101094@gmail.com"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "http://sjdhjd"
+	},
+	"name": "tacinterpreter",
+	"version": "1.0.1"
+}

@@ -681,3 +681,5 @@ var ThreeAddressCode = function(config) {
 		return true;
 	}
 };
+
+module.exports = ThreeAddressCode;

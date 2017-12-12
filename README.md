@@ -8,8 +8,8 @@ The ThreeAddressCode Interpreter is a tool for running 3AC instructions in the b
 
   Copy the ThreeAddressCode.min.js inside your working directory and insert the script tag inside your HTML document.
 
-  ```html
-<script type="txt/javascript" src="ThreeAddressCode.min.js" />
+  ```sh
+npm install --save tacinterpreter
   ```
 
 ### Building your First Program
@@ -17,7 +17,9 @@ The ThreeAddressCode Interpreter is a tool for running 3AC instructions in the b
   The following code segment will produce an alert with result 7.
   
   ```js
-  var interpreter = new ThreeAddressCode();
+  const ThreeAddressCode = require('tacinterpreter');
+
+  let interpreter = new ThreeAddressCode();
   interpreter.run("print 3+4", [], function(out) {
 	  alert(out);
   });
